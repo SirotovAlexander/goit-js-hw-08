@@ -1,12 +1,10 @@
 // Add imports above this line
 import { galleryItems } from './gallery-items';
 // Change code below this line
-
-// console.log(galleryItems);
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const galleryUl = document.querySelector('.gallery');
-
-// galleryUl.addEventListener('click', onClick);
 
 let markup = '';
 for (let i = 0; i < galleryItems.length; i += 1) {
@@ -23,29 +21,12 @@ for (let i = 0; i < galleryItems.length; i += 1) {
 }
 galleryUl.insertAdjacentHTML('afterbegin', markup);
 
-// function onClick(event) {
-//   event.preventDefault();
-
-//   if (!event.target.classList.contains('gallery__image')) {
-//     return;
-//   }
-
-//   const instance = basicLightbox.create(`
-// 	<img
-//       class="gallery__image"
-//       src="${event.target.dataset.source}"
-//       data-source="${event.target.dataset.source}"
-//     />
-// `);
-//   instance.show();
-
-//   window.addEventListener('keyup', onKetUp);
-
-//   function onKetUp(event) {
-//     if (event.code === 'Escape') {
-//       instance.close();
-//       window.removeEventListener('keyup', onKetUp);
-//       return;
-//     }
-//   }
-// }
+let dynamicGallery = new SimpleLightbox('.gallery a', {
+  caption: true,
+  captionSelector: 'img',
+  captionType: 'attr',
+  captionsData: 'alt',
+  captionPosition: 'bottom',
+  captionDelay: 250,
+});
+dynamicGallery.on('show.simplelightbox', function () {});
