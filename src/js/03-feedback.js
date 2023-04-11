@@ -15,6 +15,7 @@ text.addEventListener('input', throttle(onInputText, 500));
 
 function onSubmit(event) {
   event.preventDefault();
+  console.log(STORAGE_OBJECT);
   event.currentTarget.reset();
   localStorage.clear();
 }
