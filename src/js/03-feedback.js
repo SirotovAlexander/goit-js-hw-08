@@ -10,7 +10,7 @@ const formInput = {};
 
 function onSubmit(event) {
   event.preventDefault();
-  // console.log(event.currentTarget);
+  // console.log(formInput);
   event.currentTarget.reset();
   localStorage.clear();
 }
