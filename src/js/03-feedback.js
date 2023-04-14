@@ -6,21 +6,22 @@ checkSave();
 form.addEventListener('input', throttle(onInput, 500));
 form.addEventListener('submit', onSubmit);
 
-const formInput = {};
+let formInput = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || {};
 
 function onSubmit(event) {
   event.preventDefault();
   if (JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) !== null) {
     console.log(JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)));
   }
+  formInput = {};
   event.currentTarget.reset();
   localStorage.clear();
 }
 
 function onInput(event) {
-  event.preventDefault();
+  // event.preventDefault();
   formInput[event.target.name] = event.target.value;
-  formInput[event.target.name] = event.target.value;
+  // formInput[event.target.name] = event.target.value;
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(formInput));
 }
 
