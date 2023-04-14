@@ -10,7 +10,9 @@ const formInput = {};
 
 function onSubmit(event) {
   event.preventDefault();
-  console.log(JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || ' ');
+  if (JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) !== null) {
+    console.log(JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)));
+  }
   event.currentTarget.reset();
   localStorage.clear();
 }
