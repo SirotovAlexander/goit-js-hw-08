@@ -10,7 +10,7 @@ const formInput = {};
 
 function onSubmit(event) {
   event.preventDefault();
-  // console.log(checkSave());
+  console.log(JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || ' ');
   event.currentTarget.reset();
   localStorage.clear();
 }
@@ -28,8 +28,8 @@ function checkSave() {
   if (savedSettings) {
     const { email, message } = savedSettings;
 
-    form.email.value = email;
-    form.message.value = message;
+    form.email.value = email || ' ';
+    form.message.value = message || ' ';
     console.log(savedSettings);
   }
 }
