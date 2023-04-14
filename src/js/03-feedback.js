@@ -10,7 +10,7 @@ const formInput = {};
 
 function onSubmit(event) {
   event.preventDefault();
-  // console.log(formInput);
+  // console.log(checkSave());
   event.currentTarget.reset();
   localStorage.clear();
 }
@@ -27,6 +27,7 @@ function checkSave() {
 
   if (savedSettings) {
     const { email, message } = savedSettings;
+
     form.email.value = email;
     form.message.value = message;
     console.log(savedSettings);
