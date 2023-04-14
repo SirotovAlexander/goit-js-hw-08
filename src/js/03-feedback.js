@@ -32,3 +32,10 @@ function checkSave() {
     console.log(savedSettings);
   }
 }
+
+if (savedSettings) {
+  const { email, message } = savedSettings;
+  form.email.value = email;
+  form.message.value = message;
+  console.log(savedSettings);
+}
