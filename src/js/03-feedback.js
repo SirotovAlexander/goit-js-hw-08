@@ -33,6 +33,6 @@ function checkSave() {
 
     form.email.value = email || ' ';
     form.message.value = message || ' ';
-    console.log(savedSettings);
+    // console.log(savedSettings);
   }
 }
